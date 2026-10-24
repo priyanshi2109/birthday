@@ -1,0 +1,311 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+
+body {
+min-height: 100vh;
+font-family: 'DM Sans', sans-serif;
+color: #63394b;
+background: linear-gradient(
+135deg,
+#fff0f5,
+#fffafd,
+#f4eaff
+);
+overflow-x: hidden;
+}
+
+.sparkles {
+position: fixed;
+inset: 0;
+pointer-events: none;
+background-image:
+radial-gradient(#d98ba8 1px, transparent 1px),
+radial-gradient(#c6a2db 1px, transparent 1px);
+background-size: 45px 45px, 70px 70px;
+background-position: 0 0, 20px 30px;
+animation: sparkle 4s infinite alternate;
+}
+
+#floating-hearts {
+position: fixed;
+inset: 0;
+overflow: hidden;
+pointer-events: none;
+z-index: 5;
+}
+
+.container {
+width: min(850px, 100%);
+margin: auto;
+padding: 30px 16px;
+position: relative;
+z-index: 1;
+}
+
+.birthday-card,
+.letter {
+background: rgba(255, 255, 255, 0.82);
+border: 1px solid white;
+border-radius: 28px;
+padding: 40px 22px;
+text-align: center;
+box-shadow: 0 20px 60px rgba(170, 83, 119, 0.14);
+backdrop-filter: blur(10px);
+animation: appear 1s ease;
+}
+
+.top-text,
+.letter-label {
+color: #c34f78;
+font-size: 11px;
+letter-spacing: 2px;
+font-weight: 600;
+}
+
+h1 {
+font-family: 'Playfair Display', serif;
+font-size: clamp(38px, 8vw, 65px);
+line-height: 1.2;
+margin: 24px 0 15px;
+}
+
+h1 span {
+display: block;
+color: #c34f78;
+font-style: italic;
+}
+
+.subtitle {
+color: #987486;
+line-height: 1.8;
+font-size: 14px;
+margin-bottom: 28px;
+}
+
+.photo-frame {
+width: min(280px, 75vw);
+aspect-ratio: 4 / 5;
+margin: 0 auto 25px;
+padding: 8px;
+position: relative;
+border-radius: 150px 150px 25px 25px;
+background: linear-gradient(
+135deg,
+#ffffff,
+#f5b8d0,
+#d8b9f0,
+#ffffff
+);
+box-shadow: 0 15px 40px rgba(195, 79, 120, 0.22);
+animation: float-photo 4s ease-in-out infinite;
+}
+
+.birthday-photo {
+width: 100%;
+height: 100%;
+display: block;
+object-fit: cover;
+object-position: center 35%;
+border-radius: 145px 145px 19px 19px;
+}
+
+.decoration {
+position: absolute;
+color: #c34f78;
+animation: sparkle 1.5s infinite alternate;
+}
+
+.heart-one {
+left: -20px;
+top: 45%;
+font-size: 38px;
+}
+
+.star-one {
+right: -18px;
+top: 20%;
+font-size: 28px;
+}
+
+.star-two {
+right: 0;
+bottom: 12%;
+font-size: 25px;
+}
+
+.date {
+display: inline-block;
+color: #a53c65;
+background: #fff6fa;
+border: 1px solid #f0c6d7;
+padding: 11px 20px;
+border-radius: 30px;
+font-size: 12px;
+letter-spacing: 2px;
+}
+
+.small-note {
+color: #987486;
+margin: 18px 0 22px;
+font-size: 13px;
+}
+
+button {
+border: none;
+cursor: pointer;
+color: white;
+background: linear-gradient(100deg, #bf4673, #dc86a8);
+padding: 14px 24px;
+border-radius: 30px;
+font-family: inherit;
+font-size: 14px;
+box-shadow: 0 8px 22px rgba(195, 79, 120, 0.25);
+transition: transform 0.25s, box-shadow 0.25s;
+}
+
+button:hover {
+transform: translateY(-3px);
+box-shadow: 0 12px 28px rgba(195, 79, 120, 0.35);
+}
+
+.footer-note {
+margin-top: 25px;
+font-size: 11px;
+letter-spacing: 1px;
+color: #b18a9b;
+}
+
+.letter {
+margin-top: 22px;
+padding: 35px clamp(22px, 6vw, 55px);
+text-align: left;
+}
+
+.hidden {
+display: none;
+}
+
+.letter-label {
+text-align: center;
+}
+
+h2 {
+text-align: center;
+font-family: 'Playfair Display', serif;
+font-size: 36px;
+color: #c34f78;
+margin: 24px 0;
+}
+
+.letter > p:not(.letter-label):not(#final-message) {
+line-height: 1.9;
+font-size: 14px;
+color: #79576a;
+margin: 15px 0;
+}
+
+.letter h3 {
+text-align: center;
+font-family: 'Playfair Display', serif;
+color: #c34f78;
+margin: 24px 0;
+}
+
+#heart-btn {
+display: block;
+margin: 0 auto;
+}
+
+#final-message {
+text-align: center;
+color: #c34f78;
+margin-top: 20px;
+font-size: 23px;
+min-height: 30px;
+}
+
+footer {
+text-align: center;
+color: #a98596;
+font-size: 11px;
+letter-spacing: 1px;
+padding: 25px 0 5px;
+}
+
+footer span {
+color: #c34f78;
+}
+
+.float-heart {
+position: absolute;
+bottom: -40px;
+animation: rise linear forwards;
+opacity: 0;
+}
+
+@keyframes appear {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes float-photo {
+0%, 100% {
+transform: translateY(0);
+}
+50% {
+transform: translateY(-8px);
+}
+}
+
+@keyframes sparkle {
+from {
+opacity: 0.45;
+}
+to {
+opacity: 1;
+}
+}
+
+@keyframes rise {
+0% {
+transform: translateY(0) rotate(0);
+opacity: 0;
+}
+15% {
+opacity: 0.85;
+}
+100% {
+transform: translateY(-110vh) rotate(35deg);
+opacity: 0;
+}
+}
+
+@media (max-width: 480px) {
+.container {
+padding: 14px 12px;
+}
+
+.birthday-card,
+.letter {
+    padding: 32px 18px;
+    border-radius: 24px;
+}
+
+.subtitle br {
+    display: none;
+}
+
+.photo-frame {
+    width: min(250px, 72vw);
+}
+
+}
